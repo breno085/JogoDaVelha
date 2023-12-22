@@ -18,7 +18,7 @@ for (int l = 0; l < 3; l++)
 do
 {
     //impressão do tabuleiro atual
-    imprimirTabuleiro(tabuleiro);
+    ImprimirTabuleiro(tabuleiro);
     
     if (jogador == 1)
         Console.WriteLine("JOGADOR 1: ");
@@ -43,13 +43,13 @@ do
 
     jogada++;
     //chamada da função para verificar as consequências da jogda realizada
-    fimJogo = conferirJogada(tabuleiro, linha, coluna, jogador, jogada);
+    fimJogo = ConferirJogada(tabuleiro, linha, coluna, jogador, jogada);
 
     //troca de jogador
     jogador = (jogador == 1) ? 2: 1;
 } while (!fimJogo);
 
-static bool conferirJogada(char[,] tabuleiro, int linha, int coluna, int jogador, int jogada)
+static bool ConferirJogada(char[,] tabuleiro, int linha, int coluna, int jogador, int jogada)
 {
     bool trinca = false;
 
@@ -112,14 +112,14 @@ static bool conferirJogada(char[,] tabuleiro, int linha, int coluna, int jogador
     if (trinca)
     {   
         Console.WriteLine();
-        imprimirTabuleiro(tabuleiro);
+        ImprimirTabuleiro(tabuleiro);
         Console.WriteLine("\nJOGADOR " + jogador + " VENCEU!");
         return true;
     }
     if (jogada == 9)
     {
         Console.WriteLine();
-        imprimirTabuleiro(tabuleiro);
+        ImprimirTabuleiro(tabuleiro);
         Console.WriteLine("\nEMPATE!");
         return true;
     }
@@ -130,7 +130,7 @@ static bool conferirJogada(char[,] tabuleiro, int linha, int coluna, int jogador
     }
 }
 
-static void imprimirTabuleiro(char[,] tabuleiro)
+static void ImprimirTabuleiro(char[,] tabuleiro)
 {
     for (int l = 0; l < 3; l++)
     {
